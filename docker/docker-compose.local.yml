@@ -1,0 +1,16 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=1234567890
+    ports:
+      - 8000:3306
+    volumes:
+      - mysql-data:/var/lib/mysql
+    command: mysqld --max_allowed_packet=64M
+    network_mode: bridge
+
+volumes:
+  mysql-data:
+    driver: local
