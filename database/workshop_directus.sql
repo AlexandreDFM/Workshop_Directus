@@ -35,7 +35,7 @@ CREATE TABLE `directus_activity` (
   `origin` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `directus_activity_collection_foreign` (`collection`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,6 +44,7 @@ CREATE TABLE `directus_activity` (
 
 LOCK TABLES `directus_activity` WRITE;
 /*!40000 ALTER TABLE `directus_activity` DISABLE KEYS */;
+INSERT INTO `directus_activity` VALUES (1,'login','12f5b9f9-8ac1-4d58-8c9c-6b14ee8dbbb8','2023-01-31 08:44:59','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36','directus_users','12f5b9f9-8ac1-4d58-8c9c-6b14ee8dbbb8',NULL,'http://0.0.0.0:8055');
 /*!40000 ALTER TABLE `directus_activity` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -468,7 +469,7 @@ CREATE TABLE `directus_presets` (
   KEY `directus_presets_role_foreign` (`role`),
   CONSTRAINT `directus_presets_role_foreign` FOREIGN KEY (`role`) REFERENCES `directus_roles` (`id`) ON DELETE CASCADE,
   CONSTRAINT `directus_presets_user_foreign` FOREIGN KEY (`user`) REFERENCES `directus_users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -477,6 +478,7 @@ CREATE TABLE `directus_presets` (
 
 LOCK TABLES `directus_presets` WRITE;
 /*!40000 ALTER TABLE `directus_presets` DISABLE KEYS */;
+INSERT INTO `directus_presets` VALUES (1,NULL,'12f5b9f9-8ac1-4d58-8c9c-6b14ee8dbbb8',NULL,'directus_users',NULL,'cards','{\"cards\": {\"page\": 1, \"sort\": [\"email\"]}}','{\"cards\": {\"icon\": \"account_circle\", \"size\": 4, \"title\": \"{{ first_name }} {{ last_name }}\", \"subtitle\": \"{{ email }}\"}}',NULL,NULL,'bookmark_outline',NULL);
 /*!40000 ALTER TABLE `directus_presets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -572,6 +574,7 @@ CREATE TABLE `directus_roles` (
 
 LOCK TABLES `directus_roles` WRITE;
 /*!40000 ALTER TABLE `directus_roles` DISABLE KEYS */;
+INSERT INTO `directus_roles` VALUES ('5885c096-d471-49a9-941e-aac297b1328b','admin','supervised_user_circle',NULL,NULL,0,1,1);
 /*!40000 ALTER TABLE `directus_roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -604,6 +607,7 @@ CREATE TABLE `directus_sessions` (
 
 LOCK TABLES `directus_sessions` WRITE;
 /*!40000 ALTER TABLE `directus_sessions` DISABLE KEYS */;
+INSERT INTO `directus_sessions` VALUES ('5Pqir1JI_g6SU32dJfurYyTHn4VBbKOjIVvbspZHZoM1pLK-HyNAeEyGZv0vVY1K','12f5b9f9-8ac1-4d58-8c9c-6b14ee8dbbb8','2023-02-07 09:44:59','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36',NULL,'http://0.0.0.0:8055');
 /*!40000 ALTER TABLE `directus_sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -741,6 +745,7 @@ CREATE TABLE `directus_users` (
 
 LOCK TABLES `directus_users` WRITE;
 /*!40000 ALTER TABLE `directus_users` DISABLE KEYS */;
+INSERT INTO `directus_users` VALUES ('12f5b9f9-8ac1-4d58-8c9c-6b14ee8dbbb8',NULL,NULL,'support@workshop.com','$argon2id$v=19$m=65536,t=3,p=4$/zKylc6SmrHq3s6E7YxzGw$ZeytzIhv3amEX80Hl/+0EZZuu9EwDYg/pn6yP7PjjOE',NULL,NULL,NULL,NULL,NULL,NULL,'auto',NULL,'active','5885c096-d471-49a9-941e-aac297b1328b',NULL,'2023-01-31 08:45:23','/content','default',NULL,NULL,1);
 /*!40000 ALTER TABLE `directus_users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -783,4 +788,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-01-31  3:02:53
+-- Dump completed on 2023-01-31  8:55:39
