@@ -25,4 +25,4 @@ docker exec -i $(docker-compose ps -q mysql)                                   \
 echo "Restore ${DB_NAME} data."
 
 docker exec -i $(docker-compose ps -q mysql)                                   \
-    mysql -u ${MYSQL_USER} -p${MYSQL_PASSWORD} ../database/{DB_NAME}
+    mysql -u ${MYSQL_USER} -p${MYSQL_PASSWORD} ../database/${DB_NAME}
