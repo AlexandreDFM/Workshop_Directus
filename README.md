@@ -101,15 +101,25 @@ yarn global add create-directus-project
 
 ## Configuration
 Go to the root of the project and run the following command:
-```
-docker compose up -d | OR | docker-compose up -d
+```bash
+ln -s docker/docker-compose.local.yml docker-compose.yml
+docker compose up -d # or: docker-compose up -d
 
 cd ./bin
 ./restore.sh
 
 cd ../directus
+ln -s env/.env.local .env
 yarn install
 npx directus start
+```
+
+If you get an error:
+```bash
+cd extensions/endpoints/workshop-endpoint
+
+yarn install
+yarn dev
 ```
 
 Now that you have directus up and running take a look at the left navigation bar:
@@ -176,23 +186,40 @@ Fill in the fields:
 
 Now click on `Save`
 
-Add about 6 new dogs, try to make two of them the same breed, this will help in demonstrating the API filtering later.f
+Add about 6 new dogs, try to make two of them the same breed, this will help in demonstrating the API filtering later.
 
-### 5. Add a Fil
+### 5. Add a File
 
-e
+You can also add files to your file library. Go to `3. File Library` and click on `Upload file`.
+
+### 6. Add a Role
+
+Go to `6. Settings` > `Roles & Permissions` and click on `Create role`. Name it `Dog Master` and click `Save`
+
+Give this role create/read/write/delete permissions on the `dogs` collection.
 
 ### 6. Add a User
 
-### 7. Add a Group
+Go to `2. User directory` and click on `Create item`.
 
-### 8. Add a User to a Group
+Give the new user a name and at the bottom in the `Admin Options` section select the role `Dog Master`.
 
-### 9. Add a User to a Collection
+## API
 
-### 10. Add a User to a Field
+### 1. Get all dogs
 
-### 11. Add a User to a File
+Go to `localhost:8055/dogs` and you will get a JSON with all the dogs.
 
-### 12. Add a User to a Group
+### 2. Get a specific dog
 
+Go to `http://localhost:8055/dogs?fields=*.*&filter[name][eq]=Admiral` and you will get a JSON with the dog Admiral.
+
+### 3. Get all dogs of a specific breed
+
+Go to `http://localhost:8055/dogs?fields=*.*&filter[breed][eq]=bulldog` and you will get a JSON with all the dogs of the breed bulldog.
+
+### 4. Get all dogs of a specific breed and name
+
+Go to `http://localhost:8055/dogs?fields=*.*&filter[breed][eq]=bulldog&filter[name][eq]=Admiral` and you will get a JSON with all the dogs of the breed bulldog and name Admiral.
+
+You get the point, the API is very flexible.
