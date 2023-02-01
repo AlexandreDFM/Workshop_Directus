@@ -1,1 +1,198 @@
-# Workshop_Directus
+</br></br>
+
+<div align="right">
+<i>
+By Alexandre De Freitas Martins, Antoine Frankel & Philippe Cheype - Epitech Nice - 2023
+</i>
+</div>****
+</br></br>
+
+<div align="center">
+    <h1>
+        <div>
+            Workshop Directus
+            </br></br>
+            Authentification et routes
+        </div>
+    </h1>
+    <img src="assets/epitech_logo.png" alt="Epitech" height="75" />
+</div>
+
+</br></br>
+
+## Before starting
+
+If you want to be present you need send an email to alexandre-kevin.de-freitas-martins@epitech.eu with the following object:
+
+```
+[WSDirectus] Nom Prénom
+```
+
+Or you can Fork the repository and make a pull request with the same syntax.
+
+⚠️ Put your real firstname and lastname ⚠️ \
+In the mail share a `.zip` or `.tar.gz` file with the contents of your repository. \
+⚠️ Please assure you that the repository is clean before compressing it⚠️
+
+Any work you do needs to be in the email, if you don't do this or didn't advance into the workshop at all you will be marked absent.
+
+## Introduction
+
+Directus is a headless CMS that provides a simple and intuitive interface to manage your content and files, making it easy to integrate with any platform that you are using.
+
+## Requirements
+
+### Installation
+
+#### 1. Download Docker
+
+```
+https://docs.docker.com/engine/install/fedora/
+
+    Or see
+
+https://www.docker.com/products/docker-desktop
+```
+
+#### 2. Download NPM
+
+```
+sudo dnf install nodejs
+
+    Or see
+
+https://www.npmjs.com/get-npm
+```
+
+#### 3. Download YARN
+
+```
+sudo dnf install yarnpkg
+
+    Or see
+
+https://classic.yarnpkg.com/en/docs/install/#debian-stable
+```
+
+#### 4. Download NVM
+
+```
+https://garywoodfine.com/install-nvm-node-version-manager-fedora/
+
+    Or see
+
+https://github.com/nvm-sh/nvm
+```
+#### 5. Download MySQL
+```
+sudo dnf update
+sudo dnf install community-mysql-server -y
+
+For other OS see:
+https://dev.mysql.com/downloads/mysql/
+```
+
+#### 6. Install Directus
+```
+npm install -g create-directus-project
+
+yarn global add create-directus-project
+```
+
+## Configuration
+Go to the root of the project and run the following command:
+```
+docker compose up -d | OR | docker-compose up -d
+
+cd ./bin
+./restore.sh
+
+cd ../directus
+yarn install
+npx directus start
+```
+
+Now that you have directus up and running take a look at the left navigation bar:
+
+|  |  |
+|-:|:-|
+| <img src="assets/nav_bar.png" alt="Nav bar" width="50" /> | 1. Content<br/>2. User directory<br/>3. File Library<br/>4. Insight<br/>5. Documentation<br/>6. Settings |
+
+
+
+In order we
+
+### 1. Database
+
+Your database consists of two main parts:
+- In `6. Settings` > `Data model` you can set up your models and the fields that they contain.
+- In `1. Content` you can populate your models with data.
+
+### 2. Routes / Endpoints
+
+Routes are a path inside your API that will lead to a specific model. These can be `GET` (get information), `POST` (add information), `DELETE` (delete information), ...
+
+For example if you have a model called `users` and you want to get all the users you can go to `localhost:8055/users` and you will get a JSON with all the users.
+
+Your routes are automatically created from the models you set up in your database. You can also create [custom API routes](https://docs.directus.io/extensions/endpoints.html)
+
+## Usage
+
+Let's go step by step trough directus.
+
+### 1. Login
+
+Start by runnig your local server. Then go to `localhost:8055` and login with the following credentials:
+- Username: `support@workshop.com`
+- Password: `1234567890`
+
+### 2. Create a Collection
+
+Go to `6. Settings` > `Data model` and click on `Create collection`.
+
+
+__/!\ Fields are case sensitive be careful when naming them__
+
+Name it `dogs` and click on `Next`.
+
+### 3. Add Fields
+
+Now you have the choice of adding custom fields. You can select `Created on` and click on `Finish Setup`.
+
+Your collection is now created with the default field `id` and the extra field `date_created`.
+
+- Create a new field `Input` (in category `Text & Numbers`), set the key to `breed`.
+- Create a new field `Input` (in category `Text & Numbers`), set the key to `name`.
+- Create a new field `Image` (in category `Relational`), set the key to `image`.
+
+### 4. Add Data
+
+Let's now add dogs to our collection. Go to `1. Content` > `dogs` and click on `Create item`.
+
+Fill in the fields:
+- breed: `bulldog`
+- name: `Admiral`
+- image: Upload an image of a bulldog by dragging it in the field.
+
+Now click on `Save`
+
+Add about 6 new dogs, try to make two of them the same breed, this will help in demonstrating the API filtering later.f
+
+### 5. Add a Fil
+
+e
+
+### 6. Add a User
+
+### 7. Add a Group
+
+### 8. Add a User to a Group
+
+### 9. Add a User to a Collection
+
+### 10. Add a User to a Field
+
+### 11. Add a User to a File
+
+### 12. Add a User to a Group
+
