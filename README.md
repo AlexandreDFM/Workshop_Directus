@@ -11,11 +11,11 @@ By Alexandre De Freitas Martins, Antoine Frankel & Philippe Cheype - Epitech Nic
     <h1>
         <div>
             Workshop Directus
-            </br></br>
+            </br>
             Authentification et routes
         </div>
     </h1>
-    <img src="assets/epitech_logo.png" alt="Epitech" height="75" />
+    <img src="./assets/epitech_logo.png" alt="Epitech" height="77px"/>
 </div>
 
 </br></br>
@@ -144,7 +144,7 @@ Routes are a path inside your API that will lead to a specific model. These can 
 
 For example if you have a model called `users` and you want to get all the users you can go to `localhost:8055/users` and you will get a JSON with all the users.
 
-Your routes are automatically created from the models you set up in your database. You can also create [custom API routes](https://docs.directus.io/extensions/endpoints.html)
+Your routes are automatically created from the models you set up in your database. You can also create [custom API routes](https://docs.directus.io/extensions/endpoints.html).
 
 ## Usage
 
@@ -223,3 +223,14 @@ Go to `http://localhost:8055/dogs?fields=*.*&filter[breed][eq]=bulldog` and you 
 Go to `http://localhost:8055/dogs?fields=*.*&filter[breed][eq]=bulldog&filter[name][eq]=Admiral` and you will get a JSON with all the dogs of the breed bulldog and name Admiral.
 
 You get the point, the API is very flexible.
+
+## Extras
+
+Directus has a lot of features that we didn't cover in this workshop. \
+Here are some of them :
+  - Custom endpoints
+  - Custom UI
+  - Custom Hooks
+  - Custom permissions
+  - Custom authentication
+  - And more...
