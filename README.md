@@ -4,7 +4,7 @@
 <i>
 By Alexandre De Freitas Martins, Antoine Frankel & Philippe Cheype - Epitech Nice - 2023
 </i>
-</div>****
+</div>
 </br></br>
 
 <div align="center">
